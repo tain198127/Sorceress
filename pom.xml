@@ -6,9 +6,13 @@
 
     <groupId>katyusha</groupId>
     <artifactId>Sorceress</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <name>Sorceress</name>
     <url>https://github.com/tain198127/Sorceress</url>
+    <modules>
+        <module>sorceress-client</module>
+        <module>sorceress-server</module>
+    </modules>
     <description>An JDBC datasource implementation with Distribute Transaction.</description>
     <version>1.0-SNAPSHOT</version>
     <properties>
