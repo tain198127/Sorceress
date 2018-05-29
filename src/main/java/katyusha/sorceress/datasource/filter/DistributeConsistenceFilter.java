@@ -18,7 +18,8 @@ package katyusha.sorceress.datasource.filter;
 
 /**
  * @author Created by DaneBrown on 29/05/2018
- * Email:tain198127@163.com All Right Reserved
+ * Email:tain198127@163.com
+ * All Right Reserved
  */
 
 import com.alibaba.druid.filter.FilterChain;

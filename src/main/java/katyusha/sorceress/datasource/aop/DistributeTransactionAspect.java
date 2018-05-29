@@ -16,6 +16,9 @@
  */
 package katyusha.sorceress.datasource.aop;
 
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 
@@ -23,14 +26,19 @@ import org.aspectj.lang.annotation.Around;
  * @author Created by DaneBrown on 29/05/2018 Email:tain198127@163.com All Right Reserved
  */
 public class DistributeTransactionAspect {
+    private Logger logger = LogManager.getLogger("DistributeTransactionAspect");
+
     /**
      * cut the method which descript by DistributeTransactional
+     *
      * @param point
      */
-    @Around(value="@annotation(katyusha.sorceress.datasource.annotation.DistributeTransactional)")
+    @Around(value = "@annotation(katyusha.sorceress.datasource.annotation.DistributeTransactional)")
     public void aroundTransactionMethod(ProceedingJoinPoint point) {
         try {
+            logger.log(Level.ALL, "begin");
             point.proceed();
+            logger.log(Level.ALL, "end");
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
