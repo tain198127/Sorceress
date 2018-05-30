@@ -14,29 +14,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package katyusha.sorceress.datasource.aop;
+package katyusha.sorceress.client.aop;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 
 /**
  * @author Created by DaneBrown on 29/05/2018 Email:tain198127@163.com All Right Reserved
  */
+@Aspect
 public class DistributeTransactionAspect {
     private Logger logger = LogManager.getLogger("DistributeTransactionAspect");
+
+    @Pointcut("@annotation(katyusha.sorceress.client.annotation.DistributeTransactional)")
+    public void cutAnnotation() {
+    }
 
     /**
      * cut the method which descript by DistributeTransactional
      *
      * @param point
      */
-    @Around(value = "@annotation(katyusha.sorceress.datasource.annotation.DistributeTransactional)")
+    @Around("cutAnnotation()")
     public void aroundTransactionMethod(ProceedingJoinPoint point) {
         try {
             logger.log(Level.ALL, "begin");
+            System.out.println("begin-aop");
             point.proceed();
             logger.log(Level.ALL, "end");
         } catch (Throwable throwable) {

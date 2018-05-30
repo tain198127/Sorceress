@@ -14,29 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package katyusha.sorceress.datasource.annotation;
+package katyusha.sorceress.client.test;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
 
 /**
- * @author Created by DaneBrown on 29/05/2018 Email:tain198127@163.com All Right Reserved
+ * @author Created by DaneBrown on 30/05/2018. Email:tain198127@163.com . All Right Reserved
  */
+@ContextConfiguration(locations = {"classpath:/springContext-test.xml"})
+@EnableAutoConfiguration
+@SpringBootApplication
+public class App {
+    public static void main(String[] args){
+        SpringApplication app = new SpringApplication(App.class);
+        ApplicationContext ctx =  app.run(args);
+//        ctx.getBean(AopImpl.class).aoptest();
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
-/**
- * define a annotation desc a method in distribute transaction
- */
-@Retention(RUNTIME)
-@Target(ElementType.METHOD)
-public @interface DistributeTransactional {
-    boolean isAutoRollback();
-
-    boolean isAutoCommit();
-
-    String commitMethod();
-
-    String rollbackMethod();
+    }
 }
