@@ -16,32 +16,17 @@
  */
 package katyusha.sorceress.client.test;
 
-import javax.annotation.Resource;
-import katyusha.sorceress.client.annotation.DistributeTransactional;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * @author Created by DaneBrown on 29/05/2018. Email:tain198127@163.com . All Right Reserved
  */
 @ComponentScan(value = {"katyusha.sorceress"})
 @EnableAutoConfiguration
-public class AopTest extends BaseTest{
+public class AopTest extends BaseTest {
     @Autowired
     AopImpl impl;
 

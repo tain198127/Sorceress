@@ -34,6 +34,5 @@ import org.springframework.test.context.junit4.SpringRunner;
 @TestPropertySource(value = "classpath:application.properties")
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = App.class)
-
 public abstract class BaseTest {
 }
