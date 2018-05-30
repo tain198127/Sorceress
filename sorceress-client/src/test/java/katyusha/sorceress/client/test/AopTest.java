@@ -22,14 +22,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * @author Created by DaneBrown on 29/05/2018. Email:tain198127@163.com . All Right Reserved
  */
-@ComponentScan(value = {"katyusha.sorceress"})
+@ComponentScan("katyusha.sorceress")
+@EnableAspectJAutoProxy(proxyTargetClass = true)
+@Configuration
 @EnableAutoConfiguration
-@RunWith(SpringRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = App.class)
 public class AopTest extends BaseTest {
     @Autowired

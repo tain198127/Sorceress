@@ -16,10 +16,12 @@
  */
 package katyusha.sorceress.client.test;
 
+import katyusha.sorceress.client.aop.DistributeTransactionAspect;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -34,11 +36,15 @@ public class App {
         SpringApplication app = new SpringApplication(App.class);
         ApplicationContext ctx =  app.run(args);
 
-//        ctx.getBean(AopImpl.class).aoptest();
+        ctx.getBean(AopImpl.class).aoptest();
 
     }
     @RequestMapping("/health")
     public String testHealth(){
         return "ok";
     }
+//    @Bean
+//    public DistributeTransactionAspect provideAspect(){
+//        return new DistributeTransactionAspect();
+//    }
 }

@@ -22,7 +22,9 @@ package katyusha.sorceress.client.annotation;
  * All Right Reserved
  */
 
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
@@ -32,7 +34,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * define a annotation desc a method in distribute transaction
  */
 @Retention(RUNTIME)
-@Target(ElementType.METHOD)
+@Inherited
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Documented
 public @interface DistributeTransactional {
     boolean isAutoRollback() default true;
 

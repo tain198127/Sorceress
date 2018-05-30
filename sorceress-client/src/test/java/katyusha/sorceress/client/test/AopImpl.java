@@ -24,7 +24,7 @@ import org.springframework.stereotype.Service;
  */
 @Service("AopImpl")
 public class AopImpl {
-    @DistributeTransactional
+    @DistributeTransactional()
     public void aoptest(){
         System.out.println("成功");
     }
