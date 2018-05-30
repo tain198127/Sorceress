@@ -31,7 +31,7 @@ import org.aspectj.lang.annotation.Pointcut;
 public class DistributeTransactionAspect {
     private Logger logger = LogManager.getLogger("DistributeTransactionAspect");
 
-    @Pointcut("@annotation(katyusha.sorceress.client.annotation.DistributeTransactional)")
+    @Pointcut("execution(@katyusha.sorceress.client.annotation.DistributeTransactional * * (..))")
     public void cutAnnotation() {
     }
 
