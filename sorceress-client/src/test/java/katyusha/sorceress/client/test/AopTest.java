@@ -31,7 +31,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @author Created by DaneBrown on 29/05/2018. Email:tain198127@163.com . All Right Reserved
  */
 @ComponentScan("katyusha.sorceress")
-@EnableAspectJAutoProxy(proxyTargetClass = true)
+@EnableAspectJAutoProxy
 @Configuration
 @EnableAutoConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
