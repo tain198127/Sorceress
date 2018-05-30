@@ -21,6 +21,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author Created by DaneBrown on 30/05/2018. Email:tain198127@163.com . All Right Reserved
@@ -32,7 +33,12 @@ public class App {
     public static void main(String[] args){
         SpringApplication app = new SpringApplication(App.class);
         ApplicationContext ctx =  app.run(args);
+
 //        ctx.getBean(AopImpl.class).aoptest();
 
+    }
+    @RequestMapping("/health")
+    public String testHealth(){
+        return "ok";
     }
 }

@@ -17,15 +17,20 @@
 package katyusha.sorceress.client.test;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * @author Created by DaneBrown on 29/05/2018. Email:tain198127@163.com . All Right Reserved
  */
 @ComponentScan(value = {"katyusha.sorceress"})
 @EnableAutoConfiguration
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = App.class)
 public class AopTest extends BaseTest {
     @Autowired
     AopImpl impl;
